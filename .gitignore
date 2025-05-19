@@ -11,8 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+generated/
 
-# Editor directories and files
+# Prisma
+dev.db  
+.env
+
 .vscode/*
 !.vscode/extensions.json
 .idea

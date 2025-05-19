@@ -28,11 +28,15 @@ export default defineConfig([
     },
     // Ignora essas pastas no lint
     ignores: [
-      '**/node_modules/**', // dependências do projeto
-      '**/dist/**', // arquivos gerados na build
-      '**/build/**', // outra pasta comum de build
-      '**/.git/**', // controle de versão
-      '**/.vscode/**', // configurações do editor
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/build/**',
+      '**/.git/**',
+      '**/.vscode/**',
+      'prisma/**',
+      'generated/**',
+      '**/prisma/**',
+      '**/generated/**',
     ],
   },
 

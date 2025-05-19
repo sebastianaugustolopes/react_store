@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+model Game {
+  id       String @id @default(uuid())
+  title    String
+  imageUrl String
+
+  // Dados dos slides (games em destaque)
+  logoUrl     String?
+  description String?
+  gamePageUrl String  @unique
+  buttonText  String?
+
+  // Dados da galeria (games na biblioteca/categorias)
+  originalPrice Float?
+  currentPrice  Float?
+  discount      Int?
+  isFavorite    Boolean?
+
+  // Controle de exibição de categoria
+  displayArea DisplayArea
+  categories  Category[]  @relation("GameCategories")
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  games Game[] @relation("GameCategories")
+}
+
+enum DisplayArea {
+  SLIDE
+  GALLERY
+  BOTH
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
