@@ -1,6 +1,6 @@
-import { type FC } from 'react';
-const App: FC = () => {
-  return <h1 className="bg-amber-100">Hello World</h1>;
-};
+import Header from './components/Header/index'
+const App = () => {
+  return <Header />
+}
 
-export default App;
+export default App
